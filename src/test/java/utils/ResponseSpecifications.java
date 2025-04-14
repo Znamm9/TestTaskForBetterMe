@@ -9,4 +9,9 @@ public class ResponseSpecifications {
             .expectStatusCode(200)
             .log(LogDetail.ALL)
             .build();
+
+    public static ResponseSpecification negativeResponseSpecification = new ResponseSpecBuilder()
+            .expectStatusCode(500)
+            .log(LogDetail.ALL)
+            .build();
 }

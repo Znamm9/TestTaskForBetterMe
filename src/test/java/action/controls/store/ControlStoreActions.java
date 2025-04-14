@@ -18,6 +18,10 @@ public class ControlStoreActions {
         return response.getBody().as(PostOrderResponseDTO.class);
     }
 
+    public static Response postOrderNegative(OrderModelBody orderModelBody) {
+        return StoreController.postOrderNegative(orderModelBody);
+    }
+
     public static void postOrderValidateSchema(OrderModelBody body, String path) {
         Response response = postOrder(body);
         validateSchema(response, path);
@@ -36,6 +40,10 @@ public class ControlStoreActions {
     public static GetOrderByIdResponseDTO getOrderByIdDTO(String idStr) {
         Response response = StoreController.orderById(idStr);
         return response.getBody().as(GetOrderByIdResponseDTO.class);
+    }
+
+    public static Response getOrderByUnexistingId(String idStr) {
+        return StoreController.orderByUnexistingId(idStr);
     }
 
     public static void getOrderByIdValidateSchema(String idStr, String path) {
